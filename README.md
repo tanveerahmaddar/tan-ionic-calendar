@@ -11,6 +11,7 @@ import TanCalendarModal,ModalController in the page where you want to use it.
  for example
  in pages/home.ts 
 
+```
 import { TanModalCalendar } from 'tan-calendar/tan-modal-calendar/tan-modal-calendar';
 import { Component } from '@angular/core';
 
@@ -20,7 +21,6 @@ import { ModalController, NavController, ToastController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-
 export class HomePage {
 
   public departureDate:any;
@@ -50,10 +50,10 @@ export class HomePage {
       });
     }
 }
-
+```
 in pages/home.html
-
+```
 <a class="journey-date" (click)="departureDateModal()">select date</a>
-
+```
 
 # usage
