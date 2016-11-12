@@ -1,0 +1,47 @@
+<style>
+  tan-calendar {
+
+}
+
+</style>
+<!--
+  Generated template for the Calendar page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div class="tan-calendar">
+<div class="row">
+    <div class="col-sm-12 col-md-12" style="z-index:1000">
+        <div class="Event-calendar"  [ngStyle]="{'background-color': headerBackground}" >
+            <div class="years clearfix" style="padding-top:5px">
+                <div class="unit prev" style="text-align:left;padding-left:10px"  (click)="prevMonth()"><em  [ngStyle]="{'color':headerText}"></em></div>
+                <div class="monyear" [ngStyle]="{'color':headerText}" ><b>{{visibleMonth.monthTxt}} {{visibleMonth.year}}</b></div>
+                <div class="unit next" style="text-align:right;padding-right:10px" (click)="nextMonth()"><em></em></div>
+                <div class="clearfix WeekDays" style="margin-top:35px">
+                    <div class="unit" *ngFor="let days of weekDays"><b>{{days}}</b></div>
+                </div>
+            </div>
+            <div class="days">
+                <div class="clearfix">
+                    <div *ngFor="let w of dates">
+                        <div *ngFor="let d of w" (click)="cellClicked(d)">
+                            <div [ngStyle]="{'background-color': btnSecondary}" 
+                            [ngClass]="{'unit older': d.cmo===PREV_MONTH || d.cmo===NEXT_MONTH, 
+                            'unit': d.cmo===CURR_MONTH || d.cmo!==CURR_MONTH, 
+                            'today': isCurrDay(d.day,d.month,d.year,d.cmo),
+                            'past':isPast(d.day,d.month,d.year,d.cmo),
+                            'selected': isSelectedDay(d.day,d.month,d.year,d.cmo)}">
+                               
+                               <b *ngIf=" d.cmo!==CURR_MONTH " [ngStyle]="{'background-color': '#ccc','color':btnText}" >{{d.day}}</b>
+                              <b *ngIf=" d.cmo===CURR_MONTH " [ngStyle]="{'background-color': btnPrimary,'color':btnText}" >{{d.day}}</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="divcalendartable"></div>
